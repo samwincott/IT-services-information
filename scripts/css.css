@@ -1,0 +1,15 @@
+#footer {
+	width: 100%;
+	position: fixed;
+	bottom: 10px;
+	text-align: center;
+}
+
+#login {
+	text-align: center;
+	margin-top: 100px;
+}
+
+#pwdspace {
+	padding-right: 1.9%;
+}
