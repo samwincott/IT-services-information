@@ -18,7 +18,7 @@
 			//Another query will need to be made finding the service info
 
 		?>
-		//lets see if this is working
+
 		<div id="footer">
 		<a href="Login.php">Admin Login</a>
 		</div>
