@@ -76,6 +76,16 @@ echo "<tr>
         	}  
 echo "</table>";  
 
+//many things to fix here
+//the table is now being dynamically generated and displayed correctly, which is good
+//however, it's only displaying the first n tables, depending on how many, n, tables aren't in the 'runnning' state, there's no selection being done 
+//also the whole using function1(function2($thing)) is probably bad and needs sorting
+//as does having to use $service_*[0]
+
+//also, i'm very wary of lines 33-50 that were added in the last commit
+//it hasn't been tested at all to see if its doing what i want
+//it hasn't given any errors though either so that's a positive sign 
+
 ?>
 
 
