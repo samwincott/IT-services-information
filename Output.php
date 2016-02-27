@@ -5,19 +5,39 @@
 		<link rel="stylesheet" type="text/css" href="scripts/css.css">
 </head>
 <body>
-		<?php
+<?php
 
-		//	$db = new mysqli('localhost', 'user', 'pass', 'demo');
+//establishing link to database
+$db = new SQLite3('scripts/testing.db') or die('Unable to open database');
 
-			if($db->connect_errno > 0){
-    			die('Unable to connect to database [' . $db->connect_error . ']');
-			}
+//determining which services to show
+$sql = "SELECT * FROM services WHERE status <> 1";
+$result = $db->query($sql);
 
-			//Query the database then fill an array with showable services
-			//For num(services) display in table
-			//Another query will need to be made finding the service info
+//output page table
+echo "<table>"; 
+echo "<tr>
+		<th>Service</th>
+			<th>Status</th>
+			<th>Description</th>
+			<th>Updated</th>
+		</tr>";  
+while($row = $result->fetchArray()){
+    $service     = $row['name'];
+    $status    = $row['status'];
+    $description     = $row['description'];
+    $updated = $row['updated'];
+    echo "<tr>
+    		<td>".$service."</td>
+    		<td>".$status."</td>
+    		<td>".$description."</td>
+    		<td>".$updated."</td>
+    	</tr>";
+    echo "<br>";
+}
+echo "</table>";
 
-		?>
+?>
 
 		<div id="footer">
 		<a href="Login.php">Admin Login</a>
