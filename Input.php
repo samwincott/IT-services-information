@@ -84,12 +84,12 @@ echo "</table>";
     <input type='submit' value='Submit'>
 </form>
 
-<form action='scripts/new_status.php' method='post'>
+<form action='scripts/new_status.php' method='post' enctype='multipart/form-data'>
     Name of new status: <input type='text' name='name'>
     <br>
-    Logo for new status: <input type='file' name='logo' accept='image/*'>
+    Logo for new status: <input type='file' name='logo' id='logo'>
     <br>   
-    <input type='submit' value='Submit'>
+    <input type='submit' value='Submit' name='submit'>
 </form>
 
 <div id="footer">

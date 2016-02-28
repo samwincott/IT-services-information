@@ -1,6 +1,6 @@
 <?php
 
-$new_status = $_POST['name'];
+$new_service = $_POST['name'];
 
 //establishing link to database
 $db = new SQLite3('testing.db') or die('Unable to open database');
@@ -11,15 +11,12 @@ $id = $id + 1;
 
 //getting current date
 $date = date(d)."/".date(m)."/".date(y);
-echo $date;
 
-$sql = "INSERT INTO services (id, name, description, updated, status) VALUES ($id, '$new_status', 'Working', '$date', 1)";
+//this is not working
+//from a brief look online it is due to permissions
+//get mr bailey to look at it
+$sql = "INSERT INTO services (id, name, description, updated, status) VALUES ('$id', '$new_service', 'Working', '$date', 1)";
 $db->exec($sql);
-
-$i = SQLite3::lastErrorMsg();
-
-
-echo $i;
 
 // header('Location: ../Input.php');		
 
