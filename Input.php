@@ -33,8 +33,6 @@ while($row = $status_result->fetchArray()){
     $status_name_array[$row['id']] = $row['name'];
 }
 
-// $status_array[$status]
-
 //output page table
 echo "<table>"; 
 echo "<tr>
@@ -44,12 +42,17 @@ echo "<tr>
 			<th>Updated</th>
 		</tr>";  
 while($row = $result->fetchArray()){
-    $service     = $row['name'];
-    $status    = $row['status'];
-    $description     = $row['description'];
+    $service = $row['name'];
+    $status = $row['status'];
+    $description = $row['description'];
     $updated = $row['updated'];
-    echo "<tr>
-    		<td><input type='text' value="."$service"."></td>
+    //set of new variables, in the case of updated values
+    ${"new_name_for" . $service} = "";
+    ${"new_status_for" . $service} = "";
+    ${"new_description_for" . $service} = "";
+    ${"new_updated_for" . $service} = "";
+    echo "<form><tr>
+    		<td><input type='text' value='".$service."' name='".${'new_name_for'.$service}."'></td>
     		<td>";
                 //the drop down menu has to be dynamically generated, in the case that 
                 //more statuses are added in the future
@@ -57,23 +60,38 @@ while($row = $result->fetchArray()){
                 for($i = 1; $i <= count($status_name_array); $i++){
                         //if condition is making sure that the status for the row is pre-selected
                         if ($status_name_array[$i] == $status_name_array[$status]){
-                            echo "<option value="."$status_name_array[$i]"." selected>"."$status_name_array[$i]"."</option>";
+                            echo "<option value='".$status_name_array[$i]."' selected>"."$status_name_array[$i]"."</option>";
                         }
                         else{
-                            echo "<option value="."$status_name_array[$i]".">"."$status_name_array[$i]"."</option>";
+                            echo "<option value='".$status_name_array[$i]."'>"."$status_name_array[$i]"."</option>";
                         }
         
                 }
                 echo "</select> 
             </td>
-    		<td><input type='text' value="."$description"."></td>
+    		<td><input type='text' value='".$description."'></td>
     		<td>".$updated."</td>
-    	</tr>";
+    	</tr></form>";
     echo "<br>";
 }
 echo "</table>";
 
 ?>
+
+<form action='scripts/new_service.php' method='post'>
+    Name of new service: <input type='text' name='name'>
+    <br>
+    <input type='submit' value='Submit'>
+</form>
+
+<form action='scripts/new_status.php' method='post'>
+    Name of new status: <input type='text' name='name'>
+    <br>
+    Logo for new status: <input type='file' name='logo' accept='image/*'>
+    <br>   
+    <input type='submit' value='Submit'>
+</form>
+
 <div id="footer">
 	<a href="scripts/logout.php">Logout</a>
 </div>
