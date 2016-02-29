@@ -80,6 +80,16 @@ echo " </table>
     <input type='submit' value='Submit' name='submit'>
     </form>";  
 
+
+
+
+
+/* still to do:
+-add cron job for changing resolved to running after 24 hours
+-resize logos when they're being uploaded to 40x40
+-css for everything
+*/
+
 ?>
 
 <form action='scripts/new_service.php' method='post'>
