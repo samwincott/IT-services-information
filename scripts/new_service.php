@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors',1);
+error_reporting(E_ALL);
+
 
 $new_service = $_POST['name'];
 
@@ -18,7 +21,7 @@ $date = date(d)."/".date(m)."/".date(y);
 $sql = "INSERT INTO services (id, name, description, updated, status) VALUES ('$id', '$new_service', 'Working', '$date', 1)";
 $db->exec($sql);
 
-// header('Location: ../Input.php');		
+header('Location: ../Input.php');		
 
 
 ?>

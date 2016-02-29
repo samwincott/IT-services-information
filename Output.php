@@ -14,13 +14,18 @@ $db = new SQLite3('scripts/testing.db') or die('Unable to open database');
 $service_sql = "SELECT * FROM services WHERE status <> 1";
 $service_result = $db->query($service_sql);
 
-//filling an array with information about statuses
-//array will be key(status_id) => path_to_logo
+//filling two arrays with information about statuses
+//first array will be key(status_id) => path_to_logo
+//first array will be key(status_id) => name
 $status_sql = "SELECT * FROM statuses WHERE id <> 1";
 $status_result = $db->query($status_sql);
-$status_array = array();
+$status_logo_array = array();
 while($row = $status_result->fetchArray()){
-	$status_array[$row['id']] = $row['link'];
+    $status_logo_array[$row['id']] = $row['link'];
+}
+$status_name_array = array();
+while($row = $status_result->fetchArray()){
+    $status_name_array[$row['id']] = $row['name'];
 }
 
 
@@ -39,12 +44,27 @@ while($row = $service_result->fetchArray()){
     $updated = $row['updated'];
     echo "<tr>
     		<td>".$service."</td>
-    		<td><img src="."$status_array[$status]"."></td>
+    		<td><img src="."$status_logo_array[$status]"."></td>
     		<td>".$description."</td>
     		<td>".$updated."</td>
     	</tr>";
     echo "<br>";
 }
+echo "</table>";
+
+echo "<table>";
+echo "<tr>";
+for ($i=1; $i<=count($status_name_array); $i++){
+        echo "<td><img src="."$status_logo_array[$i]"."></td>";
+        
+}
+echo "</tr>";
+echo "<tr>";
+for ($i=1; $i<=count($status_name_array); $i++){
+    echo "<td>"."$status_name_array[$i]"."</td>";
+}
+echo "</tr>";
+
 echo "</table>";
 
 ?>

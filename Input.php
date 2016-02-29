@@ -34,47 +34,50 @@ while($row = $status_result->fetchArray()){
 }
 
 //output page table
+echo "<form method='post' action='scripts/update_db.php'>";
 echo "<table>"; 
 echo "<tr>
 		<th>Service</th>
 			<th>Status</th>
 			<th>Description</th>
 			<th>Updated</th>
-		</tr>";  
+		</tr>";          
 while($row = $result->fetchArray()){
-    $service = $row['name'];
-    $status = $row['status'];
-    $description = $row['description'];
-    $updated = $row['updated'];
+    $service_id = $row['id'];
+    $service_name = $row['name'];
+    $service_status = $row['status'];
+    $service_description = $row['description'];
+    $service_updated = $row['updated'];
     //set of new variables, in the case of updated values
-    ${"new_name_for" . $service} = "";
-    ${"new_status_for" . $service} = "";
-    ${"new_description_for" . $service} = "";
-    ${"new_updated_for" . $service} = "";
-    echo "<form><tr>
-    		<td><input type='text' value='".$service."' name='".${'new_name_for'.$service}."'></td>
+    $new_service_name = $service_name;
+    $new_service_status = $service_status;
+    $new_service_description = $service_description;
+        echo "    <tr>
+            <td>".$service_id."</td>
+    		<td><input type='text' value='".$service_name."' name='new_name".$service_id."'></td>
     		<td>";
                 //the drop down menu has to be dynamically generated, in the case that 
                 //more statuses are added in the future
                 echo "<select>";
                 for($i = 1; $i <= count($status_name_array); $i++){
                         //if condition is making sure that the status for the row is pre-selected
-                        if ($status_name_array[$i] == $status_name_array[$status]){
-                            echo "<option value='".$status_name_array[$i]."' selected>"."$status_name_array[$i]"."</option>";
+                        if ($status_name_array[$i] == $status_name_array[$service_status]){
+                            echo "<option value='new_status".$service_id."' selected>"."$status_name_array[$i]"."</option>";
                         }
                         else{
-                            echo "<option value='".$status_name_array[$i]."'>"."$status_name_array[$i]"."</option>";
+                            echo "<option value='new_status".$service_id."'>"."$status_name_array[$i]"."</option>";
                         }
         
                 }
                 echo "</select> 
             </td>
-    		<td><input type='text' value='".$description."'></td>
-    		<td>".$updated."</td>
-    	</tr></form>";
-    echo "<br>";
+    		<td><input type='text' value='".$service_description."' name='new_description".$service_id."'></td>
+    		<td>".$service_updated."</td>
+    	</tr>";       
 }
-echo "</table>";
+echo " </table>
+    <input type='submit' value='Submit' name='submit'>
+    </form>"; 
 
 ?>
 

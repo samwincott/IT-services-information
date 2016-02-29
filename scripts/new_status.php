@@ -1,6 +1,8 @@
 <?php
 ini_set('display_errors',1);
 error_reporting(E_ALL);
+
+
 //       upload file to correct directory
 //
 //
@@ -29,7 +31,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["logo"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
@@ -59,5 +61,14 @@ if ($uploadOk == 0) {
 //
 //establishing link to database
 $db = new SQLite3('testing.db') or die('Unable to open database');
+//determining id of new status, depending on how many status' there already are
+$id = $db->querySingle("SELECT COUNT(*) FROM statuses");
+$id = $id + 1;
+$link_to_new_file = "logos/" . $new_status . '.' . $imageFileType;
+$sql = "INSERT INTO statuses (id, name, link) VALUES ('$id', '$new_status', '$link_to_new_file')";
+$db->exec($sql);
+
+header('Location: ../Input.php');	
+
 
 ?>
