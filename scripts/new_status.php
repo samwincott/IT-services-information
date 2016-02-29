@@ -1,6 +1,9 @@
 <?php
-ini_set('display_errors',1);
-error_reporting(E_ALL);
+
+//uncomment these to find errors
+//also comment out the header to be able to see the errors
+//ini_set('display_errors',1);
+//error_reporting(E_ALL);
 
 
 //       upload file to correct directory
@@ -65,10 +68,12 @@ $db = new SQLite3('testing.db') or die('Unable to open database');
 $id = $db->querySingle("SELECT COUNT(*) FROM statuses");
 $id = $id + 1;
 $link_to_new_file = "logos/" . $new_status . '.' . $imageFileType;
-$sql = "INSERT INTO statuses (id, name, link) VALUES ('$id', '$new_status', '$link_to_new_file')";
-$db->exec($sql);
+//this if statement is here in the case that the url to this script is accesssed
+//if this script is not accessed correctly (from the form on the input page) it would create a new status with a blank name
+if (isset($_POST['name']) && !empty($_POST['name'])) {
+    $sql = "INSERT INTO statuses (id, name, link) VALUES ('$id', '$new_status', '$link_to_new_file')";
+    $db->exec($sql);
+}    
 
 header('Location: ../Input.php');	
-
-
 ?>

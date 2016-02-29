@@ -30,17 +30,17 @@ while($row = $status_result->fetchArray()){
 
 
 //output page table
-echo "<table>"; 
-echo "<tr>
-		<th>Service</th>
+echo "<table>
+        <tr>
+            <th>Service</th>
 			<th>Status</th>
 			<th>Description</th>
 			<th>Updated</th>
 		</tr>";  
 while($row = $service_result->fetchArray()){
-    $service     = $row['name'];
-    $status    = $row['status'];
-    $description     = $row['description'];
+    $service = $row['name'];
+    $status = $row['status'];
+    $description = $row['description'];
     $updated = $row['updated'];
     echo "<tr>
     		<td>".$service."</td>
@@ -48,30 +48,28 @@ while($row = $service_result->fetchArray()){
     		<td>".$description."</td>
     		<td>".$updated."</td>
     	</tr>";
-    echo "<br>";
 }
 echo "</table>";
 
-echo "<table>";
-echo "<tr>";
-for ($i=1; $i<=count($status_name_array); $i++){
-        echo "<td><img src="."$status_logo_array[$i]"."></td>";
+//generating key for logos
+echo "<table>
+        <tr>";
+for ($i=1; $i<=count($status_name_array) + 1; $i++){
+        echo "<th><img src="."$status_logo_array[$i]"."></th>";
         
 }
-echo "</tr>";
-echo "<tr>";
-for ($i=1; $i<=count($status_name_array); $i++){
+echo "</tr>
+      <tr>";
+for ($i=1; $i<=count($status_name_array) + 1; $i++){
     echo "<td>"."$status_name_array[$i]"."</td>";
 }
-echo "</tr>";
-
-echo "</table>";
+echo "</tr>
+    </table>";
 
 ?>
-
-		<div id="footer">
-		<a href="Login.php">Admin Login</a>
-		</div>
+<div id="footer">
+    <a href="Login.php">Admin Login</a>
+</div>
 </body>
 </html>
 
