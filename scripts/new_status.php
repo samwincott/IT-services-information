@@ -2,8 +2,8 @@
 
 //uncomment these to find errors
 //also comment out the header to be able to see the errors
-//ini_set('display_errors',1);
-//error_reporting(E_ALL);
+// ini_set('display_errors',1);
+// error_reporting(E_ALL);
 
 
 //       upload file to correct directory
@@ -44,6 +44,12 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }
+
+//resizing image to logo size
+// $im = new Imagick($_FILES["logo"]["tmp_name"]);
+// $im->resizeImage(40 , 40, imagick::FILTER_LANCZOS, 0.9, true);
+// $im->writeImage($_FILES["logo"]["tmp_name"]);
+
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";

@@ -16,33 +16,34 @@ if (!isset($_SESSION['username'])) {
 $db = new SQLite3('scripts/testing.db') or die('Unable to open database');
 
 //getting all the services
-$sql = "SELECT * FROM services";
-$result = $db->query($sql);
+$sql_all_services = "SELECT * FROM services";
+$sql_result_all_services = $db->query($sql_all_services);
 
 //filling two arrays with information about statuses
 //first array will be key(status_id) => path_to_logo
 //first array will be key(status_id) => name
-$status_sql = "SELECT * FROM statuses";
-$status_result = $db->query($status_sql);
+$sql_all_statuses = "SELECT * FROM statuses";
+$sql_result_all_statuses = $db->query($sql_all_statuses);
 $status_logo_array = array();
-while($row = $status_result->fetchArray()){
+while($row = $sql_result_all_statuses->fetchArray()){
     $status_logo_array[$row['id']] = $row['link'];
 }
 $status_name_array = array();
-while($row = $status_result->fetchArray()){
+while($row = $sql_result_all_statuses->fetchArray()){
     $status_name_array[$row['id']] = $row['name'];
 }
 
 //dynamically generating the input table
 echo "<form method='post' action='scripts/update_db.php'>
-        <table> 
+        <input type='submit' value='Submit' name='submit'>
+        <table id='input_table'> 
             <tr>
                 <th>Service</th>
                 <th>Status</th>
                 <th>Description</th>
                 <th>Updated</th>
             </tr>";          
-while($row = $result->fetchArray()){
+while($row = $sql_result_all_services->fetchArray()){
     //set of variables with information about services
     $service_id = $row['id'];
     $service_name = $row['name'];
@@ -50,7 +51,7 @@ while($row = $result->fetchArray()){
     $service_description = $row['description'];
     $service_updated = $row['updated'];
     //set of new variables, in the case of updated values
-    //they are set to the current values of the corresponding variable, so if they are not changed the if statement in update_db won't notice
+    //they are set to the current values of the corresponding variable, so if they are not changed the if statement in 'scripts/update_db.php' won't notice
     $new_service_name = $service_name;
     $new_service_status = $service_status;
     $new_service_description = $service_description;
@@ -68,7 +69,6 @@ while($row = $result->fetchArray()){
                             else{
                                 echo "<option>"."$status_name_array[$i]"."</option>";
                             }
-            
                     }
                     echo "</select> 
                 </td>
@@ -77,28 +77,24 @@ while($row = $result->fetchArray()){
             </tr>";       
 }
 echo " </table>
-    <input type='submit' value='Submit' name='submit'>
     </form>";  
 
-
-
-
-
 /* still to do:
--add cron job for changing resolved to running after 24 hours
--resize logos when they're being uploaded to 40x40
+-sort out imagick
+-any extra marks for sorting the ouput list in order of status serverity? 
 -css for everything
 */
 
 ?>
 
-<form action='scripts/new_service.php' method='post'>
+
+<form id="new_remove_forms" action='scripts/new_service.php' method='post'>
     Name of new service: <input type='text' name='name'>
     <br>
     <input type='submit' value='Submit'>
 </form>
 
-<form action='scripts/remove_service.php' method='post'>
+<form class="new_remove_forms" action='scripts/remove_service.php' method='post'>
     Remove service: <input type='text' name='name'>
     <br>
     <input type='submit' value='Submit'>
@@ -106,7 +102,7 @@ echo " </table>
 
 
 
-<form action='scripts/new_status.php' method='post' enctype='multipart/form-data'>
+<form id="new_remove_forms" action='scripts/new_status.php' method='post' enctype='multipart/form-data'>
     Name of new status: <input type='text' name='name'>
     <br>
     Logo for new status: <input type='file' name='logo' id='logo'>
@@ -114,13 +110,13 @@ echo " </table>
     <input type='submit' value='Submit' name='submit'>
 </form>
 
-<form action='scripts/remove_status.php' method='post'>
+<form id="new_remove_forms" action='scripts/remove_status.php' method='post'>
     Remove status: <input type='text' name='name'>
     <br>
     <input type='submit' value='Submit'>
 </form>
 
-<div id="footer">
+<div id="center_footer">
 	<a href="scripts/logout.php">Logout</a>
 </div>
 </body>

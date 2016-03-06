@@ -28,46 +28,51 @@ while($row = $status_result->fetchArray()){
     $status_name_array[$row['id']] = $row['name'];
 }
 
+if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
+    //output page table
+    echo "<table id='output_table'>
+            <tr>
+                <th>Service</th>
+    			<th>Status</th>
+    			<th>Description</th>
+    			<th>Updated</th>
+    		</tr>";         
+    while($row = $service_result->fetchArray()){
+        $service = $row['name'];
+        $status = $row['status'];
+        $description = $row['description'];
+        $updated = $row['updated'];
+        echo "<tr>
+        		<td>".$service."</td>
+        		<td><img src="."$status_logo_array[$status]"."></td>
+        		<td>".$description."</td>
+        		<td>".$updated."</td>
+        	</tr>";
+    }
+    echo "</table>";
 
-//output page table
-echo "<table>
-        <tr>
-            <th>Service</th>
-			<th>Status</th>
-			<th>Description</th>
-			<th>Updated</th>
-		</tr>";  
-while($row = $service_result->fetchArray()){
-    $service = $row['name'];
-    $status = $row['status'];
-    $description = $row['description'];
-    $updated = $row['updated'];
-    echo "<tr>
-    		<td>".$service."</td>
-    		<td><img src="."$status_logo_array[$status]"."></td>
-    		<td>".$description."</td>
-    		<td>".$updated."</td>
-    	</tr>";
+    //generating key for logos
+    echo "<table id='status_legend'>
+            <tr>";
+    for ($i=1; $i<=count($status_name_array) + 1; $i++){
+            echo "<th><img src="."$status_logo_array[$i]"."></th>";
+            
+    }
+    echo "</tr>
+          <tr>";
+    for ($i=1; $i<=count($status_name_array) + 1; $i++){
+        echo "<td>"."$status_name_array[$i]"."</td>";
+    }
+    echo "</tr>
+        </table>";
 }
-echo "</table>";
+else{
+    echo "<p>All services are functioning correctly</p>";
+} 
 
-//generating key for logos
-echo "<table>
-        <tr>";
-for ($i=1; $i<=count($status_name_array) + 1; $i++){
-        echo "<th><img src="."$status_logo_array[$i]"."></th>";
-        
-}
-echo "</tr>
-      <tr>";
-for ($i=1; $i<=count($status_name_array) + 1; $i++){
-    echo "<td>"."$status_name_array[$i]"."</td>";
-}
-echo "</tr>
-    </table>";
 
 ?>
-<div id="footer">
+<div id="center_footer">
     <a href="Login.php">Admin Login</a>
 </div>
 </body>

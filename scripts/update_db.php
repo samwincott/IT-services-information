@@ -13,7 +13,8 @@ $sql = "SELECT * FROM services";
 $result = $db->query($sql);
 
 //getting current date
-$date = date('h:i d')."/".date('m')."/".date('y');
+//example format '18:23 04/-5/16'
+$date = date('H:i d')."/".date('m')."/".date('y');
 
 //filling two arrays with information about statuses
 //first array will be key(status_id) => name
