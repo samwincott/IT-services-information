@@ -2,14 +2,14 @@
 
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="scripts/css.css">
+    <link rel="stylesheet" type="text/css" href="scripts/css.css">
 </head>
 <body>
 <?php
 //creating secure session
 session_start();
 if (!isset($_SESSION['username'])) {
-	header("location: Output.php");
+    header("location: Output.php");
 }
 
 //establishing link to database
@@ -117,7 +117,7 @@ echo " </table>
 </form>
 
 <div id="center_footer">
-	<a href="scripts/logout.php">Logout</a>
+    <a href="scripts/logout.php">Logout</a>
 </div>
 </body>
 </html>

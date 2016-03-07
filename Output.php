@@ -2,7 +2,7 @@
 
 <html>
 <head>
-		<link rel="stylesheet" type="text/css" href="scripts/css.css">
+        <link rel="stylesheet" type="text/css" href="scripts/css.css">
 </head>
 <body>
 <?php
@@ -33,21 +33,21 @@ if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
     echo "<table id='output_table'>
             <tr>
                 <th>Service</th>
-    			<th>Status</th>
-    			<th>Description</th>
-    			<th>Updated</th>
-    		</tr>";         
+                <th>Status</th>
+                <th>Description</th>
+                <th>Updated</th>
+            </tr>";         
     while($row = $service_result->fetchArray()){
         $service = $row['name'];
         $status = $row['status'];
         $description = $row['description'];
         $updated = $row['updated'];
         echo "<tr>
-        		<td>".$service."</td>
-        		<td><img src="."$status_logo_array[$status]"."></td>
-        		<td>".$description."</td>
-        		<td>".$updated."</td>
-        	</tr>";
+                <td>".$service."</td>
+                <td><img src="."$status_logo_array[$status]"."></td>
+                <td>".$description."</td>
+                <td>".$updated."</td>
+            </tr>";
     }
     echo "</table>";
 

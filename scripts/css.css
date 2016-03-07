@@ -1,39 +1,39 @@
 #center_footer {
-	width: 100%;
-	position: fixed;
-	bottom: 10px;
-	text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
 }
 
 #login_box {
-	text-align: center;
-	margin-top: 100px;
+    text-align: center;
+    margin-top: 100px;
 }
 
 #status_legend {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
 }
 
 #password_box_align {
-	padding-right: 1.9%;
+    padding-right: 1.9%;
 }
 
 #output_table {
-	margin-left: auto;
-	margin-right: auto;
-	width: 50%;
-	text-align: center;
-	
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    
 }
 
 #input_table {
-	margin-left: auto;
-	margin-right: auto;
-	width: 50%;
-	text-align: center;
-	
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    
 }
 
 input[type=text]:focus {
@@ -41,8 +41,8 @@ input[type=text]:focus {
 }
 
 #new_remove_forms {
-	margin-left: auto;
-	margin-right: auto;
-	width: 50%;
-	float: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    float: left;
 }

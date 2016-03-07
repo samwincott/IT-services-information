@@ -20,9 +20,9 @@ $date = date(d)."/".date(m)."/".date(y);
 //this if statement is here in the case that the url to this script is accesssed
 //if this script is not accessed correctly (from the form on the input page) it would create a new service with a blank name
 if (isset($_POST['name']) && !empty($_POST['name'])){
-	$sql = "INSERT INTO services (id, name, description, updated, status) VALUES ('$id', '$new_service', 'Working', '$date', 1)";
-	$db->exec($sql);
-}	
+    $sql = "INSERT INTO services (id, name, description, updated, status) VALUES ('$id', '$new_service', 'Working', '$date', 1)";
+    $db->exec($sql);
+}   
 
-header('Location: ../Input.php');		
+header('Location: ../Input.php');       
 ?>

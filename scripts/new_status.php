@@ -81,5 +81,5 @@ if (isset($_POST['name']) && !empty($_POST['name'])) {
     $db->exec($sql);
 }    
 
-header('Location: ../Input.php');	
+header('Location: ../Input.php');   
 ?>

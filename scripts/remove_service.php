@@ -21,17 +21,17 @@ $service_id = $db->querySingle("SELECT id FROM services WHERE name='$service_to_
 //this if statement is here in the case that the url to this script is accesssed
 //if this script is not accessed correctly (from the form on the input page) it would create a new status with a blank name
 if (isset($_POST['name']) && !empty($_POST['name'])){
-	//if the id of the service to delete isn't the most recent, it creates an error when adding a new service
-	if ($service_id == $id) {
-		$sql = "DELETE FROM services WHERE name='$service_to_remove'";
-		$db->exec($sql);
-	}
-	else {
-		$sql = "DELETE FROM services WHERE name='$service_to_remove'";
-		$db->exec($sql);
-		$shift_id_sql = "UPDATE services SET id = id-1 WHERE id > '$service_id'";
-		$db->exec($shift_id_sql);
-	}
+    //if the id of the service to delete isn't the most recent, it creates an error when adding a new service
+    if ($service_id == $id) {
+        $sql = "DELETE FROM services WHERE name='$service_to_remove'";
+        $db->exec($sql);
+    }
+    else {
+        $sql = "DELETE FROM services WHERE name='$service_to_remove'";
+        $db->exec($sql);
+        $shift_id_sql = "UPDATE services SET id = id-1 WHERE id > '$service_id'";
+        $db->exec($shift_id_sql);
+    }
 }
 
 header('Location: ../Input.php');
