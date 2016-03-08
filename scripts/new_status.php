@@ -16,6 +16,7 @@ $target_file = $target_dir . $new_status;
 $uploadOk = 1;
 $imageFileType = pathinfo(basename($_FILES["logo"]["name"]),PATHINFO_EXTENSION);
 $target_file = $target_file . '.' . $imageFileType;
+$target_file = str_replace(' ', '', $target_file);
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["logo"]["tmp_name"]);
@@ -74,6 +75,7 @@ $db = new SQLite3('testing.db') or die('Unable to open database');
 $id = $db->querySingle("SELECT COUNT(*) FROM statuses");
 $id = $id + 1;
 $link_to_new_file = "logos/" . $new_status . '.' . $imageFileType;
+$link_to_new_file = str_replace(' ', '', $link_to_new_file);
 //this if statement is here in the case that the url to this script is accesssed
 //if this script is not accessed correctly (from the form on the input page) it would create a new status with a blank name
 if (isset($_POST['name']) && !empty($_POST['name'])) {

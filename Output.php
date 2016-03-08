@@ -30,7 +30,7 @@ while($row = $status_result->fetchArray()){
 
 if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
     //output page table
-    echo "<table id='output_table'>
+    echo "<table id='input_table'>
             <tr>
                 <th>Service</th>
                 <th>Status</th>
@@ -40,6 +40,7 @@ if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
     while($row = $service_result->fetchArray()){
         $service = $row['name'];
         $status = $row['status'];
+        $status = str_replace(' ', '', $status);
         $description = $row['description'];
         $updated = $row['updated'];
         echo "<tr>
@@ -52,7 +53,7 @@ if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
     echo "</table>";
 
     //generating key for logos
-    echo "<table id='status_legend'>
+    echo "<table id='input_table'>
             <tr>";
     for ($i=1; $i<=count($status_name_array) + 1; $i++){
             echo "<th><img src="."$status_logo_array[$i]"."></th>";
@@ -72,7 +73,7 @@ else{
 
 
 ?>
-<div id="center_footer">
+<div id="input_table">
     <a href="Login.php">Admin Login</a>
 </div>
 </body>

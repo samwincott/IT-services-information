@@ -1,7 +1,7 @@
 #center_footer {
     width: 100%;
     position: fixed;
-    bottom: 10px;
+    bottom: 0px;
     text-align: center;
 }
 
@@ -32,6 +32,13 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    text-align: center;
+    
+}
+
+#input_table2 {
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     
 }

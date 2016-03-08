@@ -35,8 +35,7 @@ while($row = $sql_result_all_statuses->fetchArray()){
 
 //dynamically generating the input table
 echo "<form method='post' action='scripts/update_db.php'>
-        <input type='submit' value='Submit' name='submit'>
-        <table id='input_table'> 
+        <table id='input_table2'> 
             <tr>
                 <th>Service</th>
                 <th>Status</th>
@@ -76,7 +75,8 @@ while($row = $sql_result_all_services->fetchArray()){
                 <td>".$service_updated."</td>
             </tr>";       
 }
-echo " </table>
+echo "      <input type='submit' value='Submit' name='submit'> 
+        </table>
     </form>";  
 
 /* still to do:
@@ -88,13 +88,13 @@ echo " </table>
 ?>
 
 
-<form id="new_remove_forms" action='scripts/new_service.php' method='post'>
+<form id="input_table2" action='scripts/new_service.php' method='post'>
     Name of new service: <input type='text' name='name'>
     <br>
     <input type='submit' value='Submit'>
 </form>
 
-<form class="new_remove_forms" action='scripts/remove_service.php' method='post'>
+<form id="input_table2" action='scripts/remove_service.php' method='post'>
     Remove service: <input type='text' name='name'>
     <br>
     <input type='submit' value='Submit'>
@@ -102,7 +102,7 @@ echo " </table>
 
 
 
-<form id="new_remove_forms" action='scripts/new_status.php' method='post' enctype='multipart/form-data'>
+<form id="input_table2" action='scripts/new_status.php' method='post' enctype='multipart/form-data'>
     Name of new status: <input type='text' name='name'>
     <br>
     Logo for new status: <input type='file' name='logo' id='logo'>
@@ -110,13 +110,13 @@ echo " </table>
     <input type='submit' value='Submit' name='submit'>
 </form>
 
-<form id="new_remove_forms" action='scripts/remove_status.php' method='post'>
+<form id="input_table2" action='scripts/remove_status.php' method='post'>
     Remove status: <input type='text' name='name'>
     <br>
     <input type='submit' value='Submit'>
 </form>
 
-<div id="center_footer">
+<div id="input_table2">
     <a href="scripts/logout.php">Logout</a>
 </div>
 </body>
