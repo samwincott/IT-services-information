@@ -1,6 +1,6 @@
 <?php
 
-$new_user = $_POST['name'];
+$new_user = $_POST['new_username'];
 $new_password_attempt1 = $_POST['password_attempt1'];
 $new_password_attempt2 = $_POST['password_attempt2'];
 
