@@ -7,7 +7,7 @@
 
 
 
-$service_to_remove = $_POST['name'];
+$service_to_remove = $_POST['remove_service_name'];
 
 //establishing link to database
 $db = new SQLite3('testing.db') or die('Unable to open database');
@@ -20,7 +20,7 @@ $service_id = $db->querySingle("SELECT id FROM services WHERE name='$service_to_
 
 //this if statement is here in the case that the url to this script is accesssed
 //if this script is not accessed correctly (from the form on the input page) it would create a new status with a blank name
-if (isset($_POST['name']) && !empty($_POST['name'])){
+if (isset($_POST['remove_service_name']) && !empty($_POST['remove_service_name'])){
     //if the id of the service to delete isn't the most recent, it creates an error when adding a new service
     if ($service_id == $id) {
         $sql = "DELETE FROM services WHERE name='$service_to_remove'";

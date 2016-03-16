@@ -33,9 +33,9 @@ while($row = $sql_result_all_statuses->fetchArray()){
     $status_name_array[$row['id']] = $row['name'];
 }
 
-//dynamically generating the input table
+// generating the input table
 echo "<form method='post' action='scripts/update_db.php'>
-        <table id='input_table2'> 
+        <table id='--'> 
             <tr>
                 <th>Service</th>
                 <th>Status</th>
@@ -49,11 +49,6 @@ while($row = $sql_result_all_services->fetchArray()){
     $service_status = $row['status'];
     $service_description = $row['description'];
     $service_updated = $row['updated'];
-    //set of new variables, in the case of updated values
-    //they are set to the current values of the corresponding variable, so if they are not changed the if statement in 'scripts/update_db.php' won't notice
-    $new_service_name = $service_name;
-    $new_service_status = $service_status;
-    $new_service_description = $service_description;
         echo "<tr>
                 <td><input type='text' value='".$service_name."' name='new_name".$service_id."'></td>
                 <td>";
@@ -80,43 +75,42 @@ echo "      <input type='submit' value='Submit' name='submit'>
     </form>";  
 
 /* still to do:
--sort out imagick
--any extra marks for sorting the ouput list in order of status serverity? 
+-clean it up
 -css for everything
 */
 
 ?>
 
 
-<form id="input_table2" action='scripts/new_service.php' method='post'>
-    Name of new service: <input type='text' name='name'>
+<form id="---" action='scripts/new_service.php' method='post'>
+    Name of new service: <input type='text' name='new_service_name'>
     <br>
     <input type='submit' value='Submit'>
 </form>
 
-<form id="input_table2" action='scripts/remove_service.php' method='post'>
-    Remove service: <input type='text' name='name'>
+<form id="---" action='scripts/remove_service.php' method='post'>
+    Remove service: <input type='text' name='remove_service_name'>
     <br>
     <input type='submit' value='Submit'>
 </form>
 
 
 
-<form id="input_table2" action='scripts/new_status.php' method='post' enctype='multipart/form-data'>
-    Name of new status: <input type='text' name='name'>
+<form id="---" action='scripts/new_status.php' method='post' enctype='multipart/form-data'>
+    Name of new status: <input type='text' name='new_status_name'>
     <br>
-    Logo for new status: <input type='file' name='logo' id='logo'>
+    Logo for new status: <input type='file' name='new_status_logo'>
     <br>   
     <input type='submit' value='Submit' name='submit'>
 </form>
 
-<form id="input_table2" action='scripts/remove_status.php' method='post'>
-    Remove status: <input type='text' name='name'>
+<form id="---" action='scripts/remove_status.php' method='post'>
+    Remove status: <input type='text' name='remove_status_name'>
     <br>
     <input type='submit' value='Submit'>
 </form>
 
-<div id="input_table2">
+<div id="center_footer">
     <a href="scripts/logout.php">Logout</a>
 </div>
 </body>

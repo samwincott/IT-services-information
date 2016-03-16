@@ -10,16 +10,16 @@
 //
 //
 //
-$new_status = $_POST['name'];
+$new_status = $_POST['new_status_name'];
 $target_dir = "../logos/";
 $target_file = $target_dir . $new_status;
 $uploadOk = 1;
-$imageFileType = pathinfo(basename($_FILES["logo"]["name"]),PATHINFO_EXTENSION);
+$imageFileType = pathinfo(basename($_FILES["new_status_logo"]["name"]),PATHINFO_EXTENSION);
 $target_file = $target_file . '.' . $imageFileType;
 $target_file = str_replace(' ', '', $target_file);
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["logo"]["tmp_name"]);
+    $check = getimagesize($_FILES["new_status_logo"]["tmp_name"]);
     if($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
@@ -56,8 +56,8 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["logo"]["name"]). " has been uploaded.";
+    if (move_uploaded_file($_FILES["new_status_logo"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["new_status_logo"]["name"]). " has been uploaded.";
         header('Location: ../Input.php');
     } else {
         echo "Sorry, there was an error uploading your file.";
@@ -78,7 +78,7 @@ $link_to_new_file = "logos/" . $new_status . '.' . $imageFileType;
 $link_to_new_file = str_replace(' ', '', $link_to_new_file);
 //this if statement is here in the case that the url to this script is accesssed
 //if this script is not accessed correctly (from the form on the input page) it would create a new status with a blank name
-if (isset($_POST['name']) && !empty($_POST['name'])) {
+if (isset($_POST['new_status_name']) && !empty($_POST['new_status_name'])) {
     $sql = "INSERT INTO statuses (id, name, link) VALUES ('$id', '$new_status', '$link_to_new_file')";
     $db->exec($sql);
 }    
