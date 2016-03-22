@@ -3,6 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="scripts/css.css">
+    <title>Input</title>
 </head>
 <body>
 <?php
@@ -49,36 +50,29 @@ while($row = $sql_result_all_services->fetchArray()){
     $service_status = $row['status'];
     $service_description = $row['description'];
     $service_updated = $row['updated'];
-        echo "<tr>
-                <td><input type='text' value='".$service_name."' name='new_name".$service_id."'></td>
-                <td>";
-                    //the drop down menu has to be dynamically generated, in the case that 
-                    //more statuses are added in the future
-                    echo "<select name='new_status".$service_id."'";
-                    for($i = 0; $i <= count($status_name_array); $i++){
-                            //if condition is making sure that the status for the row is pre-selected
-                            if ($status_name_array[$i] == $status_name_array[$service_status]){
-                                echo "<option value='$status_name_array[$i]' selected>"."$status_name_array[$service_status]"."</option>";
-                            }
-                            else{
-                                echo "<option>"."$status_name_array[$i]"."</option>";
-                            }
+    echo "<tr>
+            <td><input type='text' value='".$service_name."' name='new_name".$service_id."'></td>
+            <td>";
+                //the drop down menu has to be dynamically generated, in the case that 
+                //more statuses are added in the future
+                echo "<select name='new_status".$service_id."'";
+                for($i = 0; $i <= count($status_name_array); $i++){
+                    //if condition is making sure that the status for the row is pre-selected
+                    if ($status_name_array[$i] == $status_name_array[$service_status]){
+                        echo "<option value='$status_name_array[$i]' selected>"."$status_name_array[$service_status]"."</option>";
+                    } else{
+                        echo "<option>"."$status_name_array[$i]"."</option>";
                     }
-                    echo "</select> 
-                </td>
-                <td><input type='text' value='".$service_description."' name='new_description".$service_id."'></td>
-                <td>".$service_updated."</td>
-            </tr>";       
+                }
+            echo "</select> 
+            </td>
+            <td><input type='text' value='".$service_description."' name='new_description".$service_id."'></td>
+            <td>".$service_updated."</td>
+        </tr>";       
 }
 echo "      <input type='submit' value='Submit' name='submit'> 
         </table>
     </form>";  
-
-/* still to do:
--clean it up
--css for everything
-*/
-
 ?>
 
 

@@ -1,10 +1,5 @@
 <?php
 
-//uncomment these to find errors
-//also comment out the header to be able to see the errors
-// ini_set('display_errors',1);
-// error_reporting(E_ALL);
-
 //establishing link to database
 $db = new SQLite3('testing.db') or die('Unable to open database');
 

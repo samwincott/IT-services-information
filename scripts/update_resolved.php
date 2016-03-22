@@ -1,9 +1,5 @@
 <?php
 
-//uncomment these to find errors
-ini_set('display_errors',1);
-error_reporting(E_ALL);
-
 //establishing link to database
 $db = new SQLite3('/var/www/html/testing/scripts/testing.db') or die('Unable to open database');
 
@@ -28,6 +24,5 @@ while($row = $result->fetchArray()){
         $sql_update_resolved = "UPDATE services SET status=1 WHERE id='$service_id'";
         $db->exec($sql_update_resolved);
     }
-    echo $interval;
 }
 ?>

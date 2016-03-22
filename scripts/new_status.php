@@ -1,15 +1,6 @@
 <?php
 
-//uncomment these to find errors
-//also comment out the header to be able to see the errors
-// ini_set('display_errors',1);
-// error_reporting(E_ALL);
-
-
 //       upload file to correct directory
-//
-//
-//
 $new_status = $_POST['new_status_name'];
 $target_dir = "../logos/";
 $target_file = $target_dir . $new_status;
@@ -45,12 +36,6 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }
-
-//resizing image to logo size
-// $im = new Imagick($_FILES["logo"]["tmp_name"]);
-// $im->resizeImage(40 , 40, imagick::FILTER_LANCZOS, 0.9, true);
-// $im->writeImage($_FILES["logo"]["tmp_name"]);
-
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
@@ -66,9 +51,6 @@ if ($uploadOk == 0) {
 
 
 //   add information to db about new status
-//
-//
-//
 //establishing link to database
 $db = new SQLite3('testing.db') or die('Unable to open database');
 //determining id of new status, depending on how many status' there already are
