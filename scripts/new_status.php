@@ -8,13 +8,12 @@ $uploadOk = 1;
 $imageFileType = pathinfo(basename($_FILES["new_status_logo"]["name"]),PATHINFO_EXTENSION);
 $target_file = $target_file . '.' . $imageFileType;
 $target_file = str_replace(' ', '', $target_file);
-// Check if image file is a actual image or fake image
+// Check if image file is a actual image or fake
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["new_status_logo"]["tmp_name"]);
     if($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-        
+        $uploadOk = 1;  
     } else {
         echo "File is not an image.";
         $uploadOk = 0;
@@ -31,20 +30,21 @@ if ($_FILES["logo"]["size"] > 500000) {
     $uploadOk = 0;
 }
 // Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
+    echo "Sorry, only JPG, JPEG & PNG files are allowed.";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
-} else {
+} 
+else {
     if (move_uploaded_file($_FILES["new_status_logo"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["new_status_logo"]["name"]). " has been uploaded.";
         header('Location: ../Input.php');
-    } else {
+    } 
+    else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
@@ -53,13 +53,11 @@ if ($uploadOk == 0) {
 //   add information to db about new status
 //establishing link to database
 $db = new SQLite3('testing.db') or die('Unable to open database');
-//determining id of new status, depending on how many status' there already are
+//determining id of new status, depending on how many statuses there already are
 $id = $db->querySingle("SELECT COUNT(*) FROM statuses");
 $id = $id + 1;
 $link_to_new_file = "logos/" . $new_status . '.' . $imageFileType;
 $link_to_new_file = str_replace(' ', '', $link_to_new_file);
-//this if statement is here in the case that the url to this script is accesssed
-//if this script is not accessed correctly (from the form on the input page) it would create a new status with a blank name
 if (isset($_POST['new_status_name']) && !empty($_POST['new_status_name'])) {
     $sql = "INSERT INTO statuses (id, name, link) VALUES ('$id', '$new_status', '$link_to_new_file')";
     $db->exec($sql);

@@ -1,5 +1,6 @@
 <?php
 
+//getting the input from the login page
 $user_guess = $_POST['name'];
 $password_guess = $_POST['password'];
 

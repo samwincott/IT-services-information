@@ -1,13 +1,16 @@
 <?php
 
+chdir(dirname(__FILE__));
+include_once '../testing.db';
+
 //establishing link to database
-$db = new SQLite3('/var/www/html/testing/scripts/testing.db') or die('Unable to open database');
+$db = new SQLite3('testing.db') or die('Unable to open database');
 
 //getting all the services
 $sql_all_services = "SELECT * FROM services";
 $result = $db->query($sql_all_services);
 
-//getting current date
+//getting current date in datetime format
 $date = date('h:i d')."/".date('m')."/".date('y');
 $format = 'H:i d/m/y';
 $date = DateTime::createFromFormat($format, $date);

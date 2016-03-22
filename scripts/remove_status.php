@@ -2,7 +2,7 @@
 
 $status_to_remove = $_POST['remove_status_name'];
 $target_dir = "../logos/";
-$target_file = $target_dir . $status_to_remove;
+$target_file = $target_dir . $status_to_remove . '*';
 
 //establishing link to database
 $db = new SQLite3('testing.db') or die('Unable to open database');
