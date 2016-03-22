@@ -1,8 +1,5 @@
 <?php
 
-chdir(dirname(__FILE__));
-include_once '../testing.db';
-
 //establishing link to database
 $db = new SQLite3('testing.db') or die('Unable to open database');
 
