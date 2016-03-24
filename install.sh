@@ -1,4 +1,5 @@
 #!/bin/bash
+apt-get install sqlite3 libsqlite3-dev
 wget https://github.com/samwincott/IT-services-information/archive/master.zip 
 unzip master.zip
 echo -n "Enter name for new directory and press [ENTER]: "
@@ -14,3 +15,4 @@ chmod -R 755 .
 rm ../install.sh
 rm install.sh
 rm ../master.zip
+service apache2 restart
