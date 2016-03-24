@@ -55,13 +55,13 @@ if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
     //generating key for logos
     echo "<table id='status_legend'>
             <tr>";
-    for ($i=1; $i<=count($status_name_array) + 1; $i++){
-            echo "<th><img src="."$status_logo_array[$i]"."></th>";
+    for ($i=2; $i<=count($status_name_array) + 1; $i++){
+            echo "<th><img src='"."$status_logo_array[$i]"."' style='width: 8%; height: 50%'></th>";
             
     }
     echo "</tr>
           <tr>";
-    for ($i=1; $i<=count($status_name_array) + 1; $i++){
+    for ($i=2; $i<=count($status_name_array) + 1; $i++){
         echo "<td>"."$status_name_array[$i]"."</td>";
     }
     echo "</tr>
