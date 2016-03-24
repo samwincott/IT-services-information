@@ -3,7 +3,7 @@
 $service_to_remove = $_POST['remove_service_name'];
 
 //establishing link to database
-$db = new SQLite3('testing.db') or die('Unable to open database');
+$db = new SQLite3('info.db') or die('Unable to open database');
 
 //determining how many services there are
 $current_no_of_services = $db->querySingle("SELECT COUNT(*) FROM services");

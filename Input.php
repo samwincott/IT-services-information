@@ -14,7 +14,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 //establishing link to database
-$db = new SQLite3('scripts/testing.db') or die('Unable to open database');
+$db = new SQLite3('scripts/info.db') or die('Unable to open database');
 
 //getting all the services
 $sql_all_services = "SELECT * FROM services";

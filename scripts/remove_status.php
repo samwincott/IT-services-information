@@ -5,7 +5,7 @@ $target_dir = "../logos/";
 $target_file = $target_dir . $status_to_remove . '*';
 
 //establishing link to database
-$db = new SQLite3('testing.db') or die('Unable to open database');
+$db = new SQLite3('info.db') or die('Unable to open database');
 
 //determining how many statuses there are
 $number_of_statuses = $db->querySingle("SELECT COUNT(*) FROM statuses");

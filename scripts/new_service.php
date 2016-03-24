@@ -3,7 +3,7 @@
 $new_service_name = $_POST['new_service_name'];
 
 //establishing link to database
-$db = new SQLite3('testing.db') or die('Unable to open database');
+$db = new SQLite3('info.db') or die('Unable to open database');
 
 //determining id of new service, depending on how many services there already are
 $current_max_id = $db->querySingle("SELECT COUNT(*) FROM services");

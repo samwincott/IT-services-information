@@ -52,7 +52,7 @@ else {
 
 //   add information to db about new status
 //establishing link to database
-$db = new SQLite3('testing.db') or die('Unable to open database');
+$db = new SQLite3('info.db') or die('Unable to open database');
 //determining id of new status, depending on how many statuses there already are
 $id = $db->querySingle("SELECT COUNT(*) FROM statuses");
 $id = $id + 1;

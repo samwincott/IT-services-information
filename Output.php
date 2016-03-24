@@ -8,7 +8,7 @@
 <?php
 
 //establishing link to database
-$db = new SQLite3('scripts/testing.db') or die('Unable to open database');
+$db = new SQLite3('scripts/info.db') or die('Unable to open database');
 
 //determining which services to show
 $sql_get_services = "SELECT * FROM services WHERE status <> 1";

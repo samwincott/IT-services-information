@@ -1,7 +1,7 @@
 <?php
 
 //establishing link to database
-$db = new SQLite3('testing.db') or die('Unable to open database');
+$db = new SQLite3('info.db') or die('Unable to open database');
 
 //getting all the services
 $get_all_services_sql = "SELECT * FROM services";

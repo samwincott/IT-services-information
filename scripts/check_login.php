@@ -5,7 +5,7 @@ $user_guess = $_POST['name'];
 $password_guess = $_POST['password'];
 
 //establishing link to database
-$db = new SQLite3('testing.db') or die('Unable to open database');
+$db = new SQLite3('info.db') or die('Unable to open database');
 
 //prevent sql injection
 $user_guess = stripslashes($user_guess);
