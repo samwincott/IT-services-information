@@ -76,33 +76,17 @@ echo "      <input type='submit' value='Submit' name='submit'>
 ?>
 
 
-<form id="---" action='scripts/new_service.php' method='post'>
-    Name of new service: <input type='text' name='new_service_name'>
-    <br>
-    <input type='submit' value='Submit'>
-</form>
+<div id="---">
+    <a href="add_remove_status.php">Add/Remove Status</a>
+</div>
 
-<form id="---" action='scripts/remove_service.php' method='post'>
-    Remove service: <input type='text' name='remove_service_name'>
-    <br>
-    <input type='submit' value='Submit'>
-</form>
+<div id="---">
+    <a href="add_remove_service.php">Add/Remove Service</a>
+</div>
 
-
-
-<form id="---" action='scripts/new_status.php' method='post' enctype='multipart/form-data'>
-    Name of new status: <input type='text' name='new_status_name'>
-    <br>
-    Logo for new status: <input type='file' name='new_status_logo'>
-    <br>   
-    <input type='submit' value='Submit' name='submit'>
-</form>
-
-<form id="---" action='scripts/remove_status.php' method='post'>
-    Remove status: <input type='text' name='remove_status_name'>
-    <br>
-    <input type='submit' value='Submit'>
-</form>
+<div id="---">
+    <a href="change_password.php">Change Password</a>
+</div>
 
 <div id="center_footer">
     <a href="scripts/logout.php">Logout</a>
