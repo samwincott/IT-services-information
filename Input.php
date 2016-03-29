@@ -36,7 +36,7 @@ while($row = $sql_result_all_statuses->fetchArray()){
 
 // generating the input table
 echo "<form method='post' action='scripts/update_db.php'>
-        <table id='--'> 
+        <table id='input_table'> 
             <tr>
                 <th>Service</th>
                 <th>Status</th>
@@ -88,7 +88,7 @@ echo "      <input type='submit' value='Submit' name='submit'>
     <a href="change_password.php">Change Password</a>
 </div>
 
-<div id="center_footer">
+<div id="logout_link">
     <a href="scripts/logout.php">Logout</a>
 </div>
 </body>

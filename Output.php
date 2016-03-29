@@ -30,8 +30,8 @@ while($row = $sql_result_all_statuses->fetchArray()){
 
 if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
     //output page table
-    echo "<table id='input_table'>
-            <tr>
+    echo "<table id='output_table'>
+            <tr class='output_table_header'>
                 <th>Service</th>
                 <th>Status</th>
                 <th>Description</th>
@@ -71,9 +71,8 @@ else{
     echo "<p>All services are functioning correctly</p>";
 } 
 
-
 ?>
-<div id="center_footer">
+<div id="login_link">
     <a href="Login.php">Admin Login</a>
 </div>
 </body>

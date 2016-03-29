@@ -1,4 +1,16 @@
-#center_footer {
+#login_link {
+    width: 100%;
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
+    font-size: 70%;
+}
+
+tr.output_table_header td {
+  border-bottom:1pt solid black;
+}
+
+#logout_link {
     width: 100%;
     position: fixed;
     bottom: 10px;
@@ -11,10 +23,13 @@
 }
 
 #status_legend {
-    margin-top: 40px;
+    margin-top: 50px;
+    position: fixed;
+    bottom: 40px;
     width: 100%;
-    bottom: 50px;
     text-align: center;
+    table-layout: fixed;
+    font-size: 80%;
 }
 
 #password_box_align {
@@ -26,7 +41,6 @@
     margin-right: auto;
     width: 50%;
     text-align: center;
-    
 }
 
 #input_table {
@@ -37,18 +51,11 @@
     
 }
 
-#input_table2 {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    
-}
-
 input[type=text]:focus {
     border: 3px solid #555;
 }
 
-#new_remove_forms {
+#add_remove_forms {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
