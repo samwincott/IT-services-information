@@ -66,7 +66,7 @@ while($row = $sql_result_all_services->fetchArray()){
                 }
             echo "</select> 
             </td>
-            <td><input type='text' placeholder='".$service_description."' name='new_description".$service_id."'></td>
+            <td><input type='text' value='".$service_description."' name='new_description".$service_id."'></td>
             <td>".$service_updated."</td>
         </tr>";       
 }
