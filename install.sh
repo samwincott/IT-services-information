@@ -12,8 +12,8 @@ rm ../install.sh
 rm install.sh
 rm ../master.zip
 service apache2 restart
-exit
 crontab -l > mycron
 echo "*/5 * * * * cd "$PWD"/scripts/ /usr/bin/php "$PWD"/scripts/update_resolved.php" >> mycron
 crontab mycron
 rm mycron
+
