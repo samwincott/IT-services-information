@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="scripts/css.css">
 </head>
 <body>
-    <div id="login_box">
+    <div id="form_boxes">
         <form class="form-horizontal" action="scripts/check_login.php" method="post">
                 Name: <input align="middle" type="text" name="name">
             <br>

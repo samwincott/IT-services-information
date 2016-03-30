@@ -1,27 +1,11 @@
+/*Output page CSS*/
 #login_link {
     width: 100%;
     position: fixed;
     bottom: 10px;
     text-align: center;
-    font-size: 70%;
+    font-size: 80%;
 }
-
-tr.output_table_header td {
-  border-bottom:1pt solid black;
-}
-
-#logout_link {
-    width: 100%;
-    position: fixed;
-    bottom: 10px;
-    text-align: center;
-}
-
-#login_box {
-    text-align: center;
-    margin-top: 100px;
-}
-
 #status_legend {
     margin-top: 50px;
     position: fixed;
@@ -29,35 +13,62 @@ tr.output_table_header td {
     width: 100%;
     text-align: center;
     table-layout: fixed;
-    font-size: 80%;
+    font-size: 90%;
 }
 
+/*Login page CSS*/
 #password_box_align {
     padding-right: 1.9%;
 }
 
-#output_table {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+/*Input page CSS*/
+#logout_link {
     text-align: center;
 }
-
-#input_table {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    text-align: center;
-    
+#form_link {
+    text-align: center; 
+}
+#submit_button {
+    text-align: center;  
 }
 
-input[type=text]:focus {
-    border: 3px solid #555;
-}
 
+/*External forms CSS*/
 #add_remove_forms {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     float: left;
 }
+
+/*Cross-site CSS*/
+tr.table_header {
+  border-bottom: 1pt solid DarkBlue;
+}
+td.right_border {
+    border-right: 1pt solid DarkBlue;
+}
+th.right_border {
+    border-right: 1pt solid DarkBlue;
+}
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+#table_ {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    border-collapse: collapse;
+}
+#form_boxes {
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+
+
+
+
+

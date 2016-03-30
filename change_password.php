@@ -14,19 +14,20 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 
+<div id="form_boxes">
+    <form id="---" action='scripts/change_password_script.php' method='post'>
+        Name: <input type='text' name='username'>
+        <br>
+        Current password: <input type='text' name='current_password'>
+        <br>
+        New password: <input type='text' name='new_password1'>
+        <br>
+        Retype new password: <input type='text' name='new_password2'>
+        <br>
 
-<form id="---" action='scripts/change_password_script.php' method='post'>
-    Name: <input type='text' name='username'>
-    <br>
-    Current password: <input type='text' name='current_password'>
-    <br>
-    New password: <input type='text' name='new_password1'>
-    <br>
-    Retype new password: <input type='text' name='new_password2'>
-    <br>
-
-    <input type='submit' value='Submit'>
-</form>
+        <input type='submit' value='Submit'>
+    </form>
+</div>    
 
 </body>
 </html>

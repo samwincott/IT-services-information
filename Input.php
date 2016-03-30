@@ -35,12 +35,12 @@ while($row = $sql_result_all_statuses->fetchArray()){
 }
 
 // generating the input table
-echo "<form method='post' action='scripts/update_db.php'>
-        <table id='input_table'> 
-            <tr>
-                <th>Service</th>
-                <th>Status</th>
-                <th>Description</th>
+echo "<form method='post' action='scripts/update_db.php' id='submit_button'>
+        <table id='table_'> 
+            <tr class='table_header'>
+                <th class='right_border'>Service</th>
+                <th class='right_border'>Status</th>
+                <th class='right_border'>Description</th>
                 <th>Updated</th>
             </tr>";          
 while($row = $sql_result_all_services->fetchArray()){
@@ -51,8 +51,8 @@ while($row = $sql_result_all_services->fetchArray()){
     $service_description = $row['description'];
     $service_updated = $row['updated'];
     echo "<tr>
-            <td><input type='text' value='".$service_name."' name='new_name".$service_id."'></td>
-            <td>";
+            <td class='right_border'><input type='text' value='".$service_name."' name='new_name".$service_id."'></td>
+            <td class='right_border'>";
                 //the drop down menu has to be dynamically generated, in the case that 
                 //more statuses are added in the future
                 echo "<select name='new_status".$service_id."'";
@@ -66,25 +66,25 @@ while($row = $sql_result_all_services->fetchArray()){
                 }
             echo "</select> 
             </td>
-            <td><input type='text' value='".$service_description."' name='new_description".$service_id."'></td>
+            <td class='right_border'><input type='text' value='".$service_description."' name='new_description".$service_id."'></td>
             <td>".$service_updated."</td>
         </tr>";       
 }
-echo "      <input type='submit' value='Submit' name='submit'> 
-        </table>
+echo " </table>
+        <input type='submit' value='Submit' name='submit'>
     </form>";  
 ?>
 
 
-<div id="---">
+<div id="form_link">
     <a href="add_remove_status.php">Add/Remove Status</a>
 </div>
 
-<div id="---">
+<div id="form_link">
     <a href="add_remove_service.php">Add/Remove Service</a>
 </div>
 
-<div id="---">
+<div id="form_link">
     <a href="change_password.php">Change Password</a>
 </div>
 

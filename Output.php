@@ -30,11 +30,11 @@ while($row = $sql_result_all_statuses->fetchArray()){
 
 if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
     //output page table
-    echo "<table id='output_table'>
-            <tr class='output_table_header'>
-                <th>Service</th>
-                <th>Status</th>
-                <th>Description</th>
+    echo "<table id='table_'>
+            <tr class='table_header'>
+                <th class='right_border'>Service</th>
+                <th class='right_border'>Status</th>
+                <th class='right_border'>Description</th>
                 <th>Updated</th>
             </tr>";         
     while($row = $sql_get_services_result->fetchArray()){
@@ -44,9 +44,9 @@ if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
         $description = $row['description'];
         $updated = $row['updated'];
         echo "<tr>
-                <td>".$service."</td>
-                <td><img src="."$status_logo_array[$status]"."></td>
-                <td>".$description."</td>
+                <td class='right_border'>".$service."</td>
+                <td class='right_border'><img src="."$status_logo_array[$status]"."></td>
+                <td class='right_border'>".$description."</td>
                 <td>".$updated."</td>
             </tr>";
     }
