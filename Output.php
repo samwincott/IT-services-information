@@ -68,7 +68,7 @@ if ($db->querySingle("SELECT COUNT(*) FROM services WHERE status <> 1") != 0){
         </table>";
 }
 else{
-    echo "<p>All services are functioning correctly</p>";
+    echo "<h1 align='center'>All services are functioning correctly</h1>";
 } 
 
 ?>
