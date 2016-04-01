@@ -12,9 +12,12 @@ rm ../install.sh
 rm install.sh
 rm ../master.zip
 service apache2 restart
-crontab -l > mycron
+echo -n "Enter username (if you don't know, enter 'root') for crontab and press [ENTER]: "
+read user
+crontab -l -u $user > mycron
 echo "* * * * * cd "$PWD"/scripts/ /usr/bin/php "$PWD"/scripts/update_resolved.php" >> mycron
-crontab mycron
+crontab -u $user mycron
+chmod 777 scripts/update_resolved.php
 rm mycron
 rm README.md
 
