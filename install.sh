@@ -12,8 +12,9 @@ rm ../install.sh
 rm install.sh
 rm ../master.zip
 service apache2 restart
-crontab -l > mycron
-echo "*/5 * * * * cd "$PWD"/scripts/ /usr/bin/php "$PWD"/scripts/update_resolved.php" >> mycron
-crontab mycron
+crontab -l -u www-data > mycron
+echo "* * * * * cd "$PWD"/scripts/ /usr/bin/php "$PWD"/scripts/update_resolved.php" >> mycron
+crontab -u www-data mycron
 rm mycron
+rm README.md
 

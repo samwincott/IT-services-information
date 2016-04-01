@@ -18,11 +18,11 @@ if (!isset($_SESSION['username'])) {
     <form id="---" action='scripts/change_password_script.php' method='post'>
         Name: <input type='text' name='username'>
         <br>
-        Current password: <input type='text' name='current_password'>
+        Current password: <input type='password' name='current_password'>
         <br>
-        New password: <input type='text' name='new_password1'>
+        New password: <input type='password' name='new_password1'>
         <br>
-        Retype new password: <input type='text' name='new_password2'>
+        Retype new password: <input type='password' name='new_password2'>
         <br>
 
         <input type='submit' value='Submit'>
