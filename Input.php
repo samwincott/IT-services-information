@@ -70,25 +70,27 @@ while($row = $sql_result_all_services->fetchArray()){
             <td>".$service_updated."</td>
         </tr>";       
 }
-echo " </table>
-        <input type='submit' value='Submit' name='submit'>
+echo "  </table>
+        <div id='links'>
+            <input type='submit' value='Submit' name='submit'>
+        </div>
     </form>";  
 ?>
 
 
-<div id="form_link">
+<div id="links">
     <a href="add_remove_status.php">Add/Remove Status</a>
 </div>
 
-<div id="form_link">
+<div id="links">
     <a href="add_remove_service.php">Add/Remove Service</a>
 </div>
 
-<div id="form_link">
+<div id="links">
     <a href="change_password.php">Change Password</a>
 </div>
 
-<div id="logout_link">
+<div id="links">
     <a href="scripts/logout.php">Logout</a>
 </div>
 </body>

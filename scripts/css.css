@@ -22,23 +22,9 @@
 }
 
 /*Input page CSS*/
-#logout_link {
-    text-align: center;
-}
-#form_link {
-    text-align: center; 
-}
-#submit_button {
+#links {
     text-align: center;  
 }
-
-
-/*External forms CSS*/
-#add_remove_forms {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    float: left;
 }
 
 /*Cross-site CSS*/
