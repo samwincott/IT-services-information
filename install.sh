@@ -15,7 +15,7 @@ service apache2 restart
 echo -n "Enter username (if you don't know, enter 'root') for crontab and press [ENTER]: "
 read user
 crontab -l -u $user > mycron
-echo "* * * * * cd "$PWD"/scripts/ /usr/bin/php "$PWD"/scripts/update_resolved.php" >> mycron
+echo "* * * * * /usr/bin/php "$PWD"/scripts/update_resolved.php" >> mycron
 crontab -u $user mycron
 chmod 777 scripts/update_resolved.php
 rm mycron
