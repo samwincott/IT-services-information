@@ -10,6 +10,7 @@ chown -hR www-data .
 chmod -R 755 .
 rm ../install.sh
 rm install.sh
+rm README.md
 rm ../master.zip
 service apache2 restart
 echo -n "Enter username (if you don't know, enter 'root') for crontab and press [ENTER]: "
@@ -19,6 +20,6 @@ echo "* * * * * /usr/bin/php "$PWD"/scripts/update_resolved.php" >> mycron
 crontab -u $user mycron
 chmod 777 scripts/update_resolved.php
 rm mycron
-rm README.md
-sed -i '2 a $db = new SQLite3($PWD/scripts/"info.db") or die('Unable to open database');' update_resolved.php
+db="\$db = new SQLite3('$PWD/scripts/info.db') or die('Unable to open database');"
+sed -i "2 a $db" scripts/update_resolved.php
 
