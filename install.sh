@@ -20,4 +20,5 @@ crontab -u $user mycron
 chmod 777 scripts/update_resolved.php
 rm mycron
 rm README.md
+sed -i '2 a $db = new SQLite3($PWD/scripts/"info.db") or die('Unable to open database');' update_resolved.php
 
