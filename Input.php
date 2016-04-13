@@ -22,15 +22,13 @@ $sql_result_all_services = $db->query($sql_all_services);
 
 //filling two arrays with information about statuses
 //first array will be key(status_id) => path_to_logo
-//first array will be key(status_id) => name
+//second array will be key(status_id) => name
 $sql_all_statuses = "SELECT * FROM statuses";
 $sql_result_all_statuses = $db->query($sql_all_statuses);
 $status_logo_array = array();
-while($row = $sql_result_all_statuses->fetchArray()){
-    $status_logo_array[$row['id']] = $row['link'];
-}
 $status_name_array = array();
 while($row = $sql_result_all_statuses->fetchArray()){
+	$status_logo_array[$row['id']] = $row['link'];
     $status_name_array[$row['id']] = $row['name'];
 }
 
@@ -70,27 +68,22 @@ while($row = $sql_result_all_services->fetchArray()){
             <td>".$service_updated."</td>
         </tr>";       
 }
-echo "  </table>
-        <div id='links'>
-            <input type='submit' value='Submit' name='submit'>
-        </div>
-    </form>";  
 ?>
+	</table>
+<div id='links'>
+    <input type='submit' value='Submit' name='submit'>
+</div>
+</form>  
+
 
 
 <div id="links">
     <a href="add_remove_status.php">Add/Remove Status</a>
-</div>
-
-<div id="links">
+    <br>
     <a href="add_remove_service.php">Add/Remove Service</a>
-</div>
-
-<div id="links">
+    <br>
     <a href="change_password.php">Change Password</a>
-</div>
-
-<div id="links">
+    <br>
     <a href="scripts/logout.php">Logout</a>
 </div>
 </body>
