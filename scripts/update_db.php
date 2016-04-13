@@ -29,6 +29,9 @@ while($row = $all_services->fetchArray()){
     $new_service_name = $_POST['new_name'.$service_id];
     $new_service_status = $_POST['new_status'.$service_id];
     $new_service_description = $_POST['new_description'.$service_id];
+    echo $new_service_name;
+    echo $new_service_status;
+    echo $new_service_description;
     if (isset($_POST['new_status'.$service_id]) && !empty($_POST['new_status'.$service_id])){
         if ($new_service_name != $service_name) {
             $new_name_sql = "UPDATE services SET name='$new_service_name' WHERE id='$service_id'";
