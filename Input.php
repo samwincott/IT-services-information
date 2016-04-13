@@ -75,8 +75,6 @@ while($row = $sql_result_all_services->fetchArray()){
 </div>
 </form>  
 
-
-
 <div id="links">
     <a href="add_remove_status.php">Add/Remove Status</a>
     <br>
