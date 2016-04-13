@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<!DOCTYPE = html>
-=======
 <!DOCTYPE html>
->>>>>>> 366e1540c9674b658b166f2f2dab7590ca57dfea
 <html>
 <head>
     <title>Login</title>

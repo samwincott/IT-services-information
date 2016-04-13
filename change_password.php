@@ -3,11 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="scripts/css.css">
-<<<<<<< HEAD
-    <title>Change Password</title>
-=======
     <title>Add/Remove Service</title>
->>>>>>> 366e1540c9674b658b166f2f2dab7590ca57dfea
 </head>
 <body>
 
@@ -19,11 +15,7 @@ if (!isset($_SESSION['username'])) {
 ?>
 
 <div id="form_boxes">
-<<<<<<< HEAD
-    <form action='scripts/change_password_script.php' method='post'>
-=======
     <form id="---" action='scripts/change_password_script.php' method='post'>
->>>>>>> 366e1540c9674b658b166f2f2dab7590ca57dfea
         Name: <input type='text' name='username'>
         <br>
         Current password: <input type='password' name='current_password'>

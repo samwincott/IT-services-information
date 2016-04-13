@@ -1,10 +1,6 @@
 <?php
 //establishing link to database
-<<<<<<< HEAD
-$db = new SQLite3('/var/www/html/testing/scripts/info.db') or die('Unable to open database');
-=======
 
->>>>>>> 366e1540c9674b658b166f2f2dab7590ca57dfea
 
 //getting all the services
 $sql_all_services = "SELECT * FROM services";

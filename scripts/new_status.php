@@ -41,10 +41,7 @@ if ($uploadOk == 0) {
 } 
 else {
     if (move_uploaded_file($_FILES["new_status_logo"]["tmp_name"], $target_file)) {
-<<<<<<< HEAD
-=======
         echo "The file ". basename( $_FILES["new_status_logo"]["name"]). " has been uploaded.";
->>>>>>> 366e1540c9674b658b166f2f2dab7590ca57dfea
         header('Location: ../Input.php');
     } 
     else {
@@ -61,17 +58,10 @@ $id = $db->querySingle("SELECT COUNT(*) FROM statuses");
 $id = $id + 1;
 $link_to_new_file = "logos/" . $new_status . '.' . $imageFileType;
 $link_to_new_file = str_replace(' ', '', $link_to_new_file);
-<<<<<<< HEAD
-if (isset($_POST['new_status_name']) && !empty($_POST['new_status_name']) && uploadOk != 0) {
-    $sql = "INSERT INTO statuses (id, name, link) VALUES ('$id', '$new_status', '$link_to_new_file')";
-    $db->exec($sql);
-}       
-=======
 if (isset($_POST['new_status_name']) && !empty($_POST['new_status_name'])) {
     $sql = "INSERT INTO statuses (id, name, link) VALUES ('$id', '$new_status', '$link_to_new_file')";
     $db->exec($sql);
 }    
 
 header('Location: ../Input.php');   
->>>>>>> 366e1540c9674b658b166f2f2dab7590ca57dfea
 ?>
