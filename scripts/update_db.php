@@ -11,8 +11,12 @@ $all_services = $db->query($get_all_services_sql);
 //example format '18:23 04/-5/16'
 $date = date('H:i d')."/".date('m')."/".date('y');
 
+<<<<<<< HEAD
+//filling an array with information about statuses
+=======
 //filling two arrays with information about statuses
 //first array will be key(status_id) => name
+>>>>>>> 366e1540c9674b658b166f2f2dab7590ca57dfea
 $get_all_statuses_sql = "SELECT * FROM statuses";
 $status_result = $db->query($get_all_statuses_sql);
 $status_name_array = array();
@@ -29,7 +33,11 @@ while($row = $all_services->fetchArray()){
     $new_service_name = $_POST['new_name'.$service_id];
     $new_service_status = $_POST['new_status'.$service_id];
     $new_service_description = $_POST['new_description'.$service_id];
+<<<<<<< HEAD
+    if (isset($_POST['new_name'.$service_id]) && !empty($_POST['new_name'.$service_id])){
+=======
     if (isset($_POST['new_status'.$service_id]) && !empty($_POST['new_status'.$service_id])){
+>>>>>>> 366e1540c9674b658b166f2f2dab7590ca57dfea
         if ($new_service_name != $service_name) {
             $new_name_sql = "UPDATE services SET name='$new_service_name' WHERE id='$service_id'";
             $db->exec($new_name_sql);

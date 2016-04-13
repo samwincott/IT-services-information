@@ -13,7 +13,7 @@ rm install.sh
 rm README.md
 rm ../master.zip
 service apache2 restart
-echo -n "Enter username to set cron job (if unsure, enter 'root') and press [ENTER]: "
+echo -n "Enter username (if you don't know, enter 'root') for crontab and press [ENTER]: "
 read user
 crontab -l -u $user > mycron
 echo "* * * * * /usr/bin/php "$PWD"/scripts/update_resolved.php" >> mycron

@@ -80,6 +80,13 @@ echo "  </table>
 
 <div id="links">
     <a href="add_remove_status.php">Add/Remove Status</a>
+<<<<<<< HEAD
+    <br>
+    <a href="add_remove_service.php">Add/Remove Service</a>
+    <br>
+    <a href="change_password.php">Change Password</a>
+    <br>
+=======
 </div>
 
 <div id="links">
@@ -91,6 +98,7 @@ echo "  </table>
 </div>
 
 <div id="links">
+>>>>>>> 366e1540c9674b658b166f2f2dab7590ca57dfea
     <a href="scripts/logout.php">Logout</a>
 </div>
 </body>
